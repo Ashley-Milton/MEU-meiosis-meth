@@ -50,7 +50,7 @@ Requirements:
 See [6_Bismark_Methylation_Extractor_1-4_generic.pbs](/6_Bismark_Methylation_Extractor_1-4_generic.pbs).
 
 ## Processing cytosine reports (methylKit)
-Once cytosine reports have been generated, they can be processed and visualised in various ways using the R package [methylKit](https://github.com/al2na/methylKit).See [7_methylKit_generic.R](/7_methylKit_generic.R).
+Once cytosine reports have been generated, they can be processed and visualised in various ways using the R package [methylKit](https://github.com/al2na/methylKit). See [7_methylKit_generic.R](/7_methylKit_generic.R).
 
 ## Generating plots
 Further custom plots can be generated using R packages such as [ggplot2](https://github.com/tidyverse/ggplot2). See [8_Plots_for_paper_generic.R](/8_Plots_for_paper_generic.R).
