@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#PBS -N Bismark_Methylation_Extractor_1-4
+
+#PBS -l select=1:ncpus=20:mem=100gb
+#PBS -l walltime=48:00:00
+#PBS -j oe
+#PBS -M email
+#PBS -m ae
+
+cd /path/to/dir/with/deduplicated/files
+
+module load perl/5.36.0
+module load hisat2/2.2.0
+module load bowtie/2.4.2
+module load samtools/1.15.1
+module load bismark/0.23.0
+
+f="HCTJJDSX3_1" #Change this and suffixes below to suit your file names
+
+bismark_methylation_extractor -p -o /path/to/out/dir \
+--gzip --cytosine_report --multicore 4 --genome_folder /path/to/genome/dir ${f}-NEB-UDI_merged.deduplicated.bam
+
+f="HCTJJDSX3_2"
+
+bismark_methylation_extractor -p -o /path/to/out/dir \
+--gzip --cytosine_report --multicore 4 --genome_folder /path/to/genome/dir ${f}-NEB-UDI_merged.deduplicated.bam
+
+f="HCTJJDSX3_3"
+
+bismark_methylation_extractor -p -o /path/to/out/dir \
+--gzip --cytosine_report --multicore 4 --genome_folder /path/to/genome/dir ${f}-NEB-UDI_merged.deduplicated.bam
+
+f="HCTJJDSX3_4"
+
+bismark_methylation_extractor -p -o /path/to/out/dir \
+--gzip --cytosine_report --multicore 4 --genome_folder /path/to/genome/dir ${f}-NEB-UDI_merged.deduplicated.bam

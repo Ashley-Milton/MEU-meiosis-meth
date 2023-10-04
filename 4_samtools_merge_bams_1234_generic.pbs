@@ -1,0 +1,53 @@
+#!/bin/bash
+
+#PBS -N samtools_merge_bams_1234
+#PBS -l select=1:ncpus=20:mem=100gb
+#PBS -l walltime=48:00:00
+#PBS -j oe
+#PBS -M email
+#PBS -m ae
+
+
+module load samtools/1.15.1
+
+cd path/to/alignment/dir
+
+#SAMPLE 1 ALL LANES
+
+f="_1-NEB-UDI_forward_paired_bismark_bt2_pe.bam" #Change this and prefixes below to suit your file names
+
+samtools merge -n /path/to/out/dir/HCTJJDSX3_1-NEB-UDI_merged.bam \
+HCTJJDSX3_1${f} \
+HCTJJDSX3_2${f} \
+HCTJJDSX3_3${f} \
+HCTJJDSX3_4${f}
+
+#SAMPLE 2 ALL LANES
+
+f="_2-NEB-UDI_forward_paired_bismark_bt2_pe.bam"
+
+samtools merge -n /path/to/out/dir/HCTJJDSX3_2-NEB-UDI_merged.bam \
+HCTJJDSX3_1${f} \
+HCTJJDSX3_2${f} \
+HCTJJDSX3_3${f} \
+HCTJJDSX3_4${f}
+
+#SAMPLE 3 ALL LANES
+
+f="_3-NEB-UDI_forward_paired_bismark_bt2_pe.bam"
+
+samtools merge -n /path/to/out/dir/HCTJJDSX3_3-NEB-UDI_merged.bam \
+HCTJJDSX3_1${f} \
+HCTJJDSX3_2${f} \
+HCTJJDSX3_3${f} \
+HCTJJDSX3_4${f}
+
+#SAMPLE 4 ALL LANES
+
+f="_4-NEB-UDI_forward_paired_bismark_bt2_pe.bam"
+
+samtools merge -n /path/to/out/dir/HCTJJDSX3_4-NEB-UDI_merged.bam \
+HCTJJDSX3_1${f} \
+HCTJJDSX3_2${f} \
+HCTJJDSX3_3${f} \
+HCTJJDSX3_4${f}

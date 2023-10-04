@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#PBS -N Bismark_Alignment_1
+#PBS -l select=1:ncpus=24:mem=124gb
+#PBS -l walltime=100:00:00
+#PBS -j oe
+#PBS -M email
+#PBS -m ae
+
+cd /path/to/trimmed/reads/dir/
+
+module load perl/5.36.0
+module load hisat2/2.2.0
+module load bowtie2/2.4.2
+module load samtools/1.15.1
+module load bismark/0.23.0
+
+mkdir -p $TMPDIR/bismark
+
+f="sample_ID-" #Change this and suffixes below to suit your file names
+
+bismark --temp_dir $TMPDIR/bismark --multicore 4 \
+-o /path/to/out/dir/ --score_min L,0,-0.6 \
+/path/to/genome/dir -1 ${f}1-NEB-UDI_forward_paired.fq.gz,${f}2-NEB-UDI_forward_paired.fq.gz,${f}3-NEB-UDI_forward_paired.fq.gz,${f}4-NEB-UDI_forward_paired.fq.gz \
+-2 ${f}1-NEB-UDI_reverse_paired.fq.gz,${f}2-NEB-UDI_reverse_paired.fq.gz,${f}3-NEB-UDI_reverse_paired.fq.gz,${f}4-NEB-UDI_reverse_paired.fq.gz

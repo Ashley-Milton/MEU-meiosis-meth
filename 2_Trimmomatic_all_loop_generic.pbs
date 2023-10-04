@@ -1,0 +1,25 @@
+#!/bin/bash
+ 
+#PBS -N Trimmomatic_loop_paired_end
+#PBS -l select=1:ncpus=16:mem=100gb
+#PBS -l walltime=48:00:00
+#PBS -j oe
+#PBS -M email
+#PBS -m ae
+ 
+
+module load trimmomatic/0.38
+
+cd /path/to/dir/with/fastq/files
+
+for f in $(ls *_1.fastq.gz | sed 's/\_1.fastq.gz//')
+do
+java -jar /apps/trimmomatic/0.38/trimmomatic-0.38.jar PE -threads 16 \
+${f}_1.fastq.gz \
+${f}_2.fastq.gz \
+Trimmed_reads/${f}_forward_paired.fq.gz \
+Trimmed_reads/${f}_forward_unpaired.fq.gz \
+Trimmed_reads/${f}_reverse_paired.fq.gz \
+Trimmed_reads/${f}_reverse_unpaired.fq.gz \
+ILLUMINACLIP:/path/to/TruSeq3-PE.fa:2:30:10 HEADCROP:10 SLIDINGWINDOW:5:15 MINLEN:30
+done

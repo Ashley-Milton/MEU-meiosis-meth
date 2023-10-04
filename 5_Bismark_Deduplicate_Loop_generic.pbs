@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#PBS -N Bismark_deduplicate_loop
+#PBS -l select=1:ncpus=20:mem=100gb
+#PBS -l walltime=100:00:00
+#PBS -j oe
+#PBS -M email
+#PBS -m ae
+
+module load perl/5.36.0
+module load hisat2/2.2.0
+module load bowtie/2.4.2
+module load samtools/1.15.1
+module load bismark/0.23.0
+
+cd /path/to/dir/with/merged/bams
+
+for file in *.bam
+do
+deduplicate_bismark -p \
+-output_dir /path/to/out/dir \
+"$file"
+done
