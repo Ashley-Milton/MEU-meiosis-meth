@@ -346,7 +346,7 @@ allmedians %>% ggplot(aes(x=posB, y=medianpercmeth, color=c)) +
         axis.title = element_text(size = 14),
         aspect.ratio = 0.7)
 
-ggsave(file = "figures/TSS_median_plots_cov14_count2.pdf", dpi=800, height = 6, width = 13)
+ggsave(file = "figures/Fig.1(E)_TSS_median_plots_cov14_count2.pdf", dpi=800, height = 6, width = 13)
 
 #FIG. S1(C)
 allmedians %>% ggplot(aes(x=posB, y=medianpercmeth, color=c)) +
@@ -368,7 +368,7 @@ allmedians %>% ggplot(aes(x=posB, y=medianpercmeth, color=c)) +
         axis.title = element_text(size = 14),
         aspect.ratio = 0.7)
 
-ggsave(file = "figures/TSS_median_plots_points_cov14_count2.pdf", dpi=800, height = 6, width = 13)
+ggsave(file = "figures/Fig.S1(C)_TSS_median_plots_points_cov14_count2.pdf", dpi=800, height = 6, width = 13)
 
 # Organising data into 500 CpG windows ------------------------------------
 
@@ -483,7 +483,7 @@ ggplot(data=Rsxplotdata, aes(x=start, y=value))+
         aspect.ratio = 0.7)+
   coord_cartesian(xlim = c(54720626-6000, 54759097+9500))
 
-ggsave(file = "figures/Rsx_meth_plots.pdf", dpi=800, height = 6, width = 13)
+ggsave(file = "figures/Fig.1(F)_Rsx_meth_plots.pdf", dpi=800, height = 6, width = 13)
 
 #FIG. S1(D)
 ggplot(data=Rsxplotdata, aes(x=start, y=value))+
@@ -502,4 +502,4 @@ ggplot(data=Rsxplotdata, aes(x=start, y=value))+
         aspect.ratio = 0.7)+
   coord_cartesian(xlim = c(54720626-6000, 54759097+9500))
 
-ggsave(file = "figures/Rsx_meth_plots_points.pdf", dpi=800, height = 6, width = 13)
+ggsave(file = "figures/Fig.S1(D)_Rsx_meth_plots_points.pdf", dpi=800, height = 6, width = 13)
