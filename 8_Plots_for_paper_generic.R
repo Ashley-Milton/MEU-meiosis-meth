@@ -483,7 +483,7 @@ ggplot(data=Rsxplotdata, aes(x=start, y=value))+
         aspect.ratio = 0.7)+
   coord_cartesian(xlim = c(54720626-6000, 54759097+9500))
 
-ggsave(file = "figures/Rsx_meth_plots_points.pdf", dpi=800, height = 6, width = 13)
+ggsave(file = "figures/Rsx_meth_plots.pdf", dpi=800, height = 6, width = 13)
 
 #FIG. S1(D)
 ggplot(data=Rsxplotdata, aes(x=start, y=value))+
